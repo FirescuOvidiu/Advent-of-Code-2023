@@ -41,7 +41,7 @@ int main()
   }
   int steps = 0;
 
-  vector<int>cmmdc(6,0);
+  vector<int>cmmmc(6,0);
 
 
   while (i < p.size())
@@ -65,14 +65,14 @@ int main()
     {
         if (curr[i].first[2] == 'Z')
         {
-            if (cmmdc[i] == 0)
-                cmmdc[i] = steps;
+            if (cmmmc[i] == 0)
+                cmmmc[i] = steps;
         }
 
     }
 
     int good = 0;
-    for (const auto& cc : cmmdc)
+    for (const auto& cc : cmmmc)
     {
         if (cc == 0)
             good = 1;
@@ -84,7 +84,7 @@ int main()
       i = 0;
   }
 
-  // calculeaza online cmmdc ul elementelor din vectorul cmmdc
+  // calculeaza online cmmmc ul elementelor din vectorul cmmmc
 
   cout << steps;
   cout << endl;
