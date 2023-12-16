@@ -35,23 +35,14 @@ int main()
 {
   fstream in("input.in", fstream::in);
 
-  string    s, l;
-  long long sum = 0, num = 0, nx = 0, ny = 0;
-  char      c{}, c1{}, c2{};
-
-  vector<int> dx{ 0, +1, 0, -1 };
-  vector<int> dy{ +1, 0, -1, 0 };
-
-  long long max = 0, min = numeric_limits<long long>::max();
+  long long nx = 0, ny = 0;
 
   auto m = getMatrix(in, nx, ny);
 
   vector<tuple<int, int, char>> points;
-
   points.push_back({ 0, 0, 'R' });
 
   vector<vector<bool>> v(nx, vector<bool>(ny, false));
-
   set<tuple<int, int, char>> visited;
 
   while (!points.empty())
@@ -64,13 +55,9 @@ int main()
       aux.pop_back();
 
       if (visited.find({ x, y, dir }) == visited.end())
-      {
         visited.insert({ x, y, dir });
-      }
       else
-      {
         continue;
-      }
 
       v[x][y] = true;
 
@@ -85,7 +72,6 @@ int main()
         else if (dir == 'S')
           x++;
         if (checkInMap(x, y, nx, ny))
-
           points.push_back({ x, y, dir });
 
         continue;
@@ -187,12 +173,6 @@ int main()
     aux = points;
   }
 
-  // while(in>>s)
-  while (getline(in, l))
-  {
-    stringstream ss{ l };
-  }
-
   int count = 0;
   for (int i = 0; i < nx; i++)
   {
@@ -203,17 +183,4 @@ int main()
     }
   }
   cout << count;
-
-  /*
-  ll totalSum = 0;
-  FOR(i, nx)
-  {
-    FOR(j, ny)
-    {
-      if (m[i][j] == 'O')
-        totalSum += nx - i;
-    }
-  }
-  */
-  cout << endl;
 }
